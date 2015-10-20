@@ -6,6 +6,11 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="stylesheets/app.css" />
     <script src="bower_components/modernizr/modernizr.js"></script>
+    <script language="javascript" type="text/javascript" src="../p5.js"></script>
+  <!-- uncomment lines below to include extra p5 libraries -->
+  <script language="javascript" src="../addons/p5.dom.js"></script>  <!--<script language="javascript" src="../addons/p5.sound.js"></script>-->
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <!-- this line removes any default padding and style. you might only need one of these values set. -->
     <link href='https://fonts.googleapis.com/css?family=Pacifico|Dancing+Script' rel='stylesheet' type='text/css'>
     
   </head>
@@ -27,7 +32,7 @@
    
  <div class="weather">
     <div class="small-2 large-2 columns"></div>
-    <div class="small-12 large-12 columns"><img src="images/title3.svg" alt="title" ></div>
+    <div class="small-12 large-12 columns"><img src="images/title2.svg" alt="title" ></div>
     
     <div class="americacity">
 <select>
@@ -63,11 +68,11 @@
      
  <div class="cityweather">       
 <div class="row">
- <div class="class small-3 large-3 columns"><img src="images/sun.svg" alt="sun"></div>
- <div class="class small-3 large-3 columns">
+ <div class="class small-3 large-2 columns"><img src="images/sun.svg" alt="sun"></div>
+ <div class="class small-6 large-3 columns">
  <p>Miami beach <br>Temperature:89&#176F<br>UV Index:4.0<br>Humidity:75%<br>Wind:12 m/h</p>
  </div>
-<div class="class small-6 large-6 columns"></div>
+<div class="class small-3 large-7 columns"></div>
 
 </div>
 
