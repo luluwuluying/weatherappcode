@@ -1,6 +1,11 @@
 @import "settings";
 @import "foundation";
 
+
+.weather-grid {
+    height: 250px;
+}
+
 .top-bar{
     background:pink;
 h2{
@@ -43,6 +48,27 @@ h3{
 }
 .cityweather{
     text-align: center;
+    margin-top: 10px;
+    font-size: 25px;
+    font-feature-settings: normal;
+    
     
 }
 
+.abc{
+    background-color: pink;
+    padding: 10px;
+}
+
+#boy{
+    display: none;
+}
+
+#weathericon{
+    display:none;
+}
+
+#girl{
+    
+    display:none;
+}

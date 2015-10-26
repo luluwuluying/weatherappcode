@@ -6,10 +6,11 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="stylesheets/app.css" />
     <script src="bower_components/modernizr/modernizr.js"></script>
-    <script language="javascript" type="text/javascript" src="../p5.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/p5.js"></script>
   <!-- uncomment lines below to include extra p5 libraries -->
-  <script language="javascript" src="../addons/p5.dom.js"></script>  <!--<script language="javascript" src="../addons/p5.sound.js"></script>-->
-  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <script language="javascript" src="js/p5.dom.js"></script>  <!--<script language="javascript" src="../addons/p5.sound.js"></script>-->
+  <script language="javascript" type="text/javascript" src="p5/empty-example/sketch.js"></script>
   <!-- this line removes any default padding and style. you might only need one of these values set. -->
     <link href='https://fonts.googleapis.com/css?family=Pacifico|Dancing+Script' rel='stylesheet' type='text/css'>
     
@@ -31,80 +32,85 @@
        
    
  <div class="weather">
-    <div class="small-2 large-2 columns"></div>
-    <div class="small-12 large-12 columns"><img src="images/title2.svg" alt="title" ></div>
+    <div class="small-12 large-12 columns"></div>
+    <div class="small-12 large-12 columns"><img src="images/title4.svg" alt="title" ></div>
     
     <div class="americacity">
-<select>
-<option value="Miami Beach">Miami Beach</option>
-<option value=" New York City"> New York City </option>
-<option value="Chicago, Illinois">Chicago, Illinois</option>
-<option value="Charleston, South Carolina">Charleston, South Carolina</option>
-<option value="Las Vegas, Nevada">Las Vegas, Nevada</option>
-<option value="Seattle, Washington">Seattle, Washington</option>
-<option value="San Francisco, California">San Francisco, California</option>
-<option value="Washington, D.C.">Washington, D.C.</option>
-<option value="New Orleans, Louisiana">New Orleans, Louisiana</option>
-<option value="Palm Springs, California">Palm Springs, California</option>
-<option value="San Diego, California">San Diego, California</option>
-<option value="St. Louis, Missouri">St. Louis, Missouri</option>
-<option value="Sedona, Arizona">Sedona, Arizona</option>
-<option value="Honolulu, Hawaii">Honolulu, Hawaii</option>
-<option value="Branson, Missouri">Branson, Missouri</option>
-<option value="Boston, Massachusetts">Boston, Massachusetts</option>
-<option value="Savannah, Georgia">Savannah, Georgia</option>
-<option value="Orlando, Florida">Orlando, Florida</option>
-<option value="Portland, Oregon">Portland, Oregon</option>
-<option value="Lahaina, Hawaii">Lahaina, Hawaii</option>
-<option value="Saint Augustine, Florida">Saint Augustine, Florida</option>
-<option value="Austin, Texas.">Austin, Texas.</option>
-<option value="Nashville, Tennessee">Nashville, Tennessee</option>
-<option value="Los Angeles, California">Los Angeles, California</option>
-<option value="San Antonio, Texas">San Antonio, Texas</option>
+    <div class="row">
+    <div class="small-10 large-11 columns">
+<select id="cities">
+<option value="FL/Miami_Beach">Miami Beach</option>
+<option value="NY/New_York_City"> New York City </option>
+<option value="Ii/Chicago">Chicago, Illinois</option>
+<option value="SC/Charleston">Charleston, South Carolina</option>
+<option value="Ne/Las_Vegas">Las Vegas, Nevada</option>
+<option value="WA/Seattle">Seattle, Washington</option>
+<option value="CA/San_Francisco">San Francisco, California</option>
+<option value="DC/Washington">Washington, D.C.</option>
+<option value="LO/New_Orleans">New Orleans, Louisiana</option>
+<option value="CA/Palm_Springs">Palm Springs, California</option>
+<option value="CA/San_Diego">San Diego, California</option>
+<option value="Mi/St._Louis">St. Louis, Missouri</option>
+<option value="Ar/Sedona">Sedona, Arizona</option>
+<option value="Ha/Honolulu">Honolulu, Hawaii</option>
+<option value="MO/Branson">Branson, Missouri</option>
+<option value="Ma/Boston">Boston, Massachusetts</option>
+<option value="Ga/Savannah">Savannah, Georgia</option>
+<option value="FL/Orlando">Orlando, Florida</option>
+<option value="Or/Portland">Portland, Oregon</option>
+<option value="HA/Lahaina">Lahaina, Hawaii</option>
+<option value="FL/Saint_Augustine">Saint Augustine, Florida</option>
+<option value="TX/Austin">Austin, Texas</option>
+<option value="TN/Nashville">Nashville, Tennessee</option>
+<option value="CA/Los_Angeles">Los Angeles, California</option>
+<option value="TX/San_Antonio">San Antonio, Texas</option>
 </select>
 </div>
-     </div>
+
+<div class="small-2 large-1 columns"><button class="abc">GO!</button></div>
+</div>
+</div>
 
      
  <div class="cityweather">       
-<div class="row">
- <div class="class small-3 large-2 columns"><img src="images/sun.svg" alt="sun"></div>
- <div class="class small-6 large-3 columns">
- <p>Miami beach <br>Temperature:89&#176F<br>UV Index:4.0<br>Humidity:75%<br>Wind:12 m/h</p>
+ <div class="row">
+ <div id="weathericon" class="small-6 large-3 columns weather-grid">
+ <img src="images/sun.svg" alt="sun">
+ <img src="images/cloud.svg" alt="cloud">
+ <img src="images/rain.svg" alt="rain">
+  
  </div>
-<div class="class small-3 large-7 columns"></div>
-
-</div>
-
+ <div class="small-6 large-3 columns weather-grid">
+     <div id="weather1"></div>
+     <div id="temp1"></div>
+     <div id="uv1"></div>
+     <div id="humidity1"></div>
+     <div id="wind1"></div>
+ </div>
  
+ <div id="boy" class="small-6 large-3 columns weather-grid">
+ <img src="images/boy.svg" alt="boy1" >
+ <img src="images/boy2.svg" alt="boy2" >
+<img src="images/boy3.svg" alt="boy3" >
 
-  <div class="row">
-  <div class="small-6 large-6 columns"><p>Recommend Clothes</p></div>
-  <div class="small-6 large-6 columns"><p>Recommend activity</p></div>
-  </div>
-  
-  <div class="row">
-  <div class="small-3 large-3 columns"><img src="images/boy.svg" alt="boy" >boy</div>
-  <div class="small-3 large-3 columns"><img src="images/girl.svg" alt="gril" >girl</div>
-  <div class="small-6 large-6 columns"><img src="images/travel.svg" alt="travel" >
-  <img src="images/vacation.svg" alt="vacation" ></div>
-     
-   </div> 
-
-
-</div>
+ </div>
+ 
+ 
+ <div id="girl" class="small-6 large-3 columns weather-grid">
+ <img src="images/girl.svg" alt="gril1" >
+ <img src="images/girl2.svg" alt="gril2" >
+<img src="images/girl3.svg" alt="gril3" >
 
 
+ </div>
+ </div>
+ </div>
 
 
-  
-         
-          
-        
-        
+
+
     
     
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
     <script src="js/app.js"></script>
   </body>
